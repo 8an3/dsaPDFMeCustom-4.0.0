@@ -25,6 +25,9 @@ const Sidebar = (props: SidebarProps) => {
         zIndex: 1,
         height: '100%',
         width: sidebarOpen ? RIGHT_SIDEBAR_WIDTH : 0,
+       // border: '#262626',
+        backgroundColor:'#0a0a0a', 
+color: '#fafafa'
       }}
     >
       <div>
@@ -37,6 +40,9 @@ const Sidebar = (props: SidebarProps) => {
             top: '1rem',
             right: '1rem',
             zIndex: 100,
+            border: ' 1px solid #262626',
+            backgroundColor:'#0a0a0a', 
+color: '#fafafa'
           }}
           icon={sidebarOpen ? <ArrowRightOutlined /> : <ArrowLeftOutlined />}
           onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -53,7 +59,10 @@ const Sidebar = (props: SidebarProps) => {
             overflowY: 'auto',
             fontFamily: "'Open Sans', sans-serif",
             boxSizing: 'border-box',
-            background: token.colorBgLayout,
+            //backgroundColor: token.colorBgLayout,
+        //   border: '#262626',
+            backgroundColor:'#0a0a0a', 
+color: '#fafafa'
           }}
         >
           <div>

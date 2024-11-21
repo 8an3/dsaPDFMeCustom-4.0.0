@@ -52,9 +52,12 @@ const LeftSidebar = ({ height, scale, basePdf }: { height: number, scale: number
       right: 0,
       zIndex: 1,
       height,
-      background: token.colorBgLayout,
+    //  background: token.colorBgLayout,
       textAlign: 'center',
       width: 45,
+      border: ' 1px solid #262626',
+      background:'#0a0a0a', 
+color: '#fafafa'
     }}
   >
     {Object.entries(pluginsRegistry).map(([label, plugin]) => {
@@ -70,7 +73,9 @@ const LeftSidebar = ({ height, scale, basePdf }: { height: number, scale: number
           {plugin.propPanel.defaultSchema.icon ?
             <div dangerouslySetInnerHTML={{ __html: plugin.propPanel.defaultSchema.icon }} />
             :
-            <div style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>{label}</div>
+            <div style={{ overflow: 'hidden', textOverflow: 'ellipsis' ,    border: '#262626',
+              background:'#0a0a0a', 
+color: '#fafafa'}}>{label}</div>
           }
         </Button>
       </Draggable>

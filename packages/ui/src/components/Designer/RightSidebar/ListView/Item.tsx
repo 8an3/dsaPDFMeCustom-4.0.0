@@ -90,6 +90,8 @@ const Item = React.memo(
                 boxShadow: 'none',
                 border: 'none',
                 paddingLeft: '0.25rem',
+                   backgroundColor:'#0a0a0a', 
+          color: '#fafafa'
               }}
               icon={<HolderOutlined style={{ cursor: 'grab' }} />}
             />
@@ -99,6 +101,7 @@ const Item = React.memo(
                 whiteSpace: 'nowrap',
                 textOverflow: 'ellipsis',
                 width: '100%',
+                 color: '#fafafa'
               }}
               title={title || ''}
             >
