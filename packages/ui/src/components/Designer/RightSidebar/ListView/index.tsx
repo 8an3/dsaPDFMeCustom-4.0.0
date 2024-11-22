@@ -516,8 +516,7 @@ const ListView = (
           maxWidth: '95%',
           marginTop: '1rem',
           justifyContent: 'center',
-          backgroundColor:'#0a0a0a', 
-          color: '#fafafa'
+   
         }}
       >
         {items.map((item: any) => (
@@ -528,24 +527,24 @@ const ListView = (
                 copyText(item.attribute)}}
               key={item.name}
               style={{
-                backgroundColor: name === item.name ? '#303030' : '#0a0a0a',
-                color: name === item.name ? '#fafafaF' : '#a3a3a3',
-                width: '90%',
+                          width: '90%',
                 margin: '0 auto',
                 cursor: 'pointer',
                 display: 'flex',
                 justifyContent: 'flex-start',
                 transition: 'background-color 0.3s',
-                border: ' 1px solid #262626',
+                border: ' 1px solid #d9d9d9',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#181818';
+                e.currentTarget.style.backgroundColor = '#181818',
+                e.currentTarget.style.color = '#61b8ff';
+                ;
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.backgroundColor = name === item.name ? '#232324' : 'transparent';
               }}
-            >{copiedText === item.name  ? "Copied!" : item.name}</Button>
-            {copiedText === item.name && (
+            >{copiedText === item.name  ? (
+            <div    style={{  display: "flex", alignItems: "center",   }}> 
                <svg
                xmlns="http://www.w3.org/2000/svg"
                viewBox="0 0 24 24"
@@ -555,7 +554,10 @@ const ListView = (
              >
                <path d="M9 16.2l-4.2-4.2L3 14.4 9 20.4l12-12-1.8-1.8z" />
              </svg>
-            )}
+             <Text style={{  marginLeft: "12px", color: '#61b8ff'  }}>Copied!</Text>
+             </div>
+             ) : <Text>{item.name}</Text>}</Button>
+          
           </>
         ))
         }
@@ -595,8 +597,8 @@ const ListView = (
 
   return (
     <div>
-      <div style={{ height: headHeight, display: 'flex', alignItems: 'center', backgroundColor: '#0a0a0a', color: '#fafafa' }}>
-        <Text strong style={{ textAlign: 'center', width: '100%' }}>
+      <div style={{ height: headHeight, display: 'flex', alignItems: 'center', }}>
+        <Text strong style={{ textAlign: 'center', width: '100%', }}>
           {open ?
             <>
               <Button
@@ -605,9 +607,8 @@ const ListView = (
                   right: !open ? '5rem' : undefined,
                   zIndex: 100,
                   margin: open ? '0 auto' : undefined,
-                  border: ' 1px solid #262626',
-                        backgroundColor:'#0a0a0a', 
-          color: '#fafafa'
+                  border: ' 1px solid #d9d9d9',
+                   
                   
                 }}
                 onClick={() => setOpen(!open)}
@@ -622,9 +623,8 @@ const ListView = (
                   top: '1rem',
                   right: '5rem',
                   zIndex: 100,
-                  border: ' 1px solid #262626',
-                  backgroundColor:'#0a0a0a', 
-    color: '#fafafa'
+                  border: ' 1px solid #d9d9d9',
+               
                 }}
                 onClick={() => setOpen(!open)}
               >
@@ -633,7 +633,7 @@ const ListView = (
             </>}
         </Text>
       </div>
-      <Divider style={{ marginTop: token.marginXS, marginBottom: token.marginXS,    border: ' 1px solid #262626', }} />
+      <Divider style={{ marginTop: token.marginXS, marginBottom: token.marginXS,   }} />
       <div style={{ height: height - headHeight }}>
         {open ? (<>
           <Select
@@ -642,10 +642,7 @@ const ListView = (
               width: 250,
               margin: '0 auto',
               display: 'block',
-              border: ' 1px solid #262626',
-              backgroundColor:'#0a0a0a', 
-color: '#fafafa'
-            }}
+                         }}
             onChange={(value: any) => setName(value)}
             options={[
               { value: 'Documentation', label: 'Documentation' },
@@ -677,18 +674,17 @@ color: '#fafafa'
                 maxWidth: '95%',
                 marginTop: '1rem',
                 justifyContent: 'center',
-                backgroundColor:'#0a0a0a', 
-  color: '#fafafa'
+               
               }}
             >
-               <Text style={{color: '#9a9ea3' }}>In order for the system to know where to put the correct data where you need it,</Text>
-              <Text style={{color: '#9a9ea3' }}>We need to map the data, from the right source. </Text>
-              <Text style={{color: '#9a9ea3' }}>From the drop down select the type of document you want to create, or the closest to it.</Text>
-              <Text style={{color: '#9a9ea3' }}>An example of that document will display on the screen. The only difference is that, each field and its value that we pull from the database which will have the information on your customer, belongs at a different location on your document. </Text>
-              <Text style={{color: '#9a9ea3' }}>Change the base PDF to the document you would need. </Text>
-              <Text style={{color: '#9a9ea3' }}>With the given example with the fields already mapped out, you just need click and drag to the appropirate spot on your uploaded pdf.</Text>
-              <Text style={{color: '#9a9ea3' }}>If you accidentally delete one of the items that you need, we can just replace it. You need to generate a new input field by selecting the input button, on the left hand side of the page. Drag it, to where you need it. Last thing before moving on, we need to name it. On the right there will be a glossary, click on the button that says first name. This copies the value needed for you. Return to your first name input field, click on it to display its details on the right side bar. Last but not least paste that information under name. Save your work, and you can move on to the next one. </Text>
-              <Text style={{color: '#9a9ea3' }}>Regrettably at this time, documents are not saving correctly. Once done, please email us a copy with your dealer information. This issue will be rectified in short order.</Text>
+               <Text>In order for the system to know where to put the correct data where you need it,</Text>
+              <Text>We need to map the data, from the right source. </Text>
+              <Text>From the drop down select the type of document you want to create, or the closest to it.</Text>
+              <Text>An example of that document will display on the screen. The only difference is that, each field and its value that we pull from the database which will have the information on your customer, belongs at a different location on your document. </Text>
+              <Text>Change the base PDF to the document you would need. </Text>
+              <Text>With the given example with the fields already mapped out, you just need click and drag to the appropirate spot on your uploaded pdf.</Text>
+              <Text>If you accidentally delete one of the items that you need, we can just replace it. You need to generate a new input field by selecting the input button, in the left side bar, top button. Drag it, to where you need it. Last thing before moving on, we need to name it. On the right there will be a glossary, click on the button that says first name. This copies the value needed for you. Return to your first name input field, click on it to display its details on the right side bar. Last but not least paste that information under name. Save your work, and you can move on to the next one. </Text>
+              <Text>Regrettably at this time, documents are not saving correctly. Once done, please email us a copy with your dealer information. This issue will be rectified in short order.</Text>
                      </div>
 
           </>
@@ -704,10 +700,8 @@ color: '#fafafa'
                 height: height - headHeight,
                 width: RIGHT_SIDEBAR_WIDTH - 35,
                 lineHeight: '2.75rem',
-                border: ' 1px solid #262626',
-                backgroundColor:'#0a0a0a', 
-  color: '#fafafa'
-              }}
+                border: ' 1px solid #d9d9d9',
+                         }}
             />
           ) : (
             <SelectableSortableContainer
@@ -721,23 +715,20 @@ color: '#fafafa'
           <div style={{ paddingTop: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
             {isBulkUpdateFieldNamesMode ? (
               <>
-                <Button size="small" type="text" onClick={commitBulk}  style={{     border: ' 1px solid #262626',
-              backgroundColor:'#0a0a0a', 
-color: '#fafafa'  }}>
+                <Button size="small" type="text" onClick={commitBulk}  style={{     border: ' 1px solid #d9d9d9',
+            }}>
                   <u> {i18n('commitBulkUpdateFieldName')}</u>
                 </Button>
                 <span style={{ margin: '0 1rem' }}>/</span>
-                <Button size="small" type="text" onClick={() => setIsBulkUpdateFieldNamesMode(false)} style={{      border: ' 1px solid #262626',
-              backgroundColor:'#0a0a0a', 
-color: '#fafafa'  }}>
+                <Button size="small" type="text" onClick={() => setIsBulkUpdateFieldNamesMode(false)} style={{      border: ' 1px solid #d9d9d9',
+           }}>
                   <u> {i18n('cancel')}</u>
                 </Button>
               </>
             ) : (
               <Button size="small" type="text" onClick={startBulk} style={{   
-                   border: ' 1px solid #262626',
-                backgroundColor:'#0a0a0a', 
-  color: '#fafafa'  }}>
+                   border: ' 1px solid #d9d9d9',
+              }}>
                 <u> {i18n('bulkUpdateFieldName')}</u>
               </Button>
             )}

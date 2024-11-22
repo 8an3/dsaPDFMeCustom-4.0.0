@@ -1,6 +1,6 @@
 {
   "name": "@dsapdfmecustom/ui",
-  "version": "0.0.6",
+  "version": "0.1.4",
   "files": ["dist", "README.md"],
   "author": "8an3",
   "license": "MIT",
