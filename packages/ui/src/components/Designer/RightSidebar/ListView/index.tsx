@@ -536,14 +536,12 @@ const ListView = (
                 border: ' 1px solid #d9d9d9',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#181818',
-                e.currentTarget.style.color = '#61b8ff';
-                ;
+                e.currentTarget.style.backgroundColor = '#c2c2c2'
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.backgroundColor = name === item.name ? '#232324' : 'transparent';
               }}
-            >{copiedText === item.name  ? (
+            >{textValue === item.attribute  ? (
             <div    style={{  display: "flex", alignItems: "center",   }}> 
                <svg
                xmlns="http://www.w3.org/2000/svg"
@@ -554,9 +552,9 @@ const ListView = (
              >
                <path d="M9 16.2l-4.2-4.2L3 14.4 9 20.4l12-12-1.8-1.8z" />
              </svg>
-             <Text style={{  marginLeft: "12px", color: '#61b8ff'  }}>Copied!</Text>
+             <Text style={{  marginLeft: "12px", color: '#61b8ff'   }}>Copied!</Text>
              </div>
-             ) : <Text>{item.name}</Text>}</Button>
+             ) : <Text style={{color: textValue === item.attribute  ?'#61b8ff' : '#1f1f1f'}} >{item.name}</Text>}</Button>
           
           </>
         ))
